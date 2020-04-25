@@ -16,15 +16,14 @@ class App < Roda
     before_create_account do
       account[:name] = param('name')
     end
-
   end
   plugin :hash_routes
   hash_path "/api/wards" do |r|
     wards(r)
   end
   route do |r|
-    # r.rodauth
-    # rodauth.require_authentication
+    r.rodauth
+    rodauth.require_authentication
     r.hash_routes
   end
 end
