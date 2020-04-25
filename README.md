@@ -8,10 +8,18 @@ You can start a console of the proejct with the following command:
 
 ## Web Application Container setup
 
+### Build it locally
+
 ```shell
 docker build -t ayt .
 docker run -p 9292:9292 ayt:latest
 curl 127.0.0.1:9292/hello
+```
+
+### Or play around with dockerhub image
+
+```shell
+docker run -p 9292:9292 areyouthere/api:latest
 ```
 
 
