@@ -6,7 +6,10 @@ GEM
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    rack (2.2.2)
     rake (13.0.1)
+    roda (3.31.0)
+      rack
     sequel (5.31.0)
     sqlite (1.0.2)
     sqlite3 (1.4.2)
@@ -17,6 +20,7 @@ PLATFORMS
 DEPENDENCIES
   pry
   rake
+  roda
   sequel
   sqlite
   sqlite3
