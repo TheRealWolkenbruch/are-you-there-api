@@ -1,4 +1,6 @@
 *.gem
+.project
+*.db
 *.rbc
 /.config
 /coverage/
