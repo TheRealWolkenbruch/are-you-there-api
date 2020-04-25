@@ -20,3 +20,8 @@ Rollback the whole datasbase to verion 0
 ```shell
 rake db:rollback
 ```
+or for a specific version
+``` shell
+rake db:rollback[0]
+rake 'db:rollback[0]' # for zsh, because i can't parse the rake task correctly
+```
