@@ -1,0 +1,9 @@
+data:
+  - id: 1
+    name: John Doe
+    email: john@doe.com
+    password: JohnDoe1
+  - id: 2
+    name: Nice Guy
+    email: nice@guy.com
+    password: NiceGuy1

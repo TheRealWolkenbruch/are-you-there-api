@@ -1,0 +1,14 @@
+data:
+  - id: 1
+    valid_from: "26/Apr/2020 16:29:30 +0100"
+    valid_to: "27/Apr/2020 16:29:30 +0100"
+    seen_at: "26/Apr/2020 16:45:30 +0100"
+    feedback_message: "Everything OK"
+    how_do_you_feel: 4
+    f_schedule_id: 1
+    url_stub_id: "0000-2222"    
+  - id: 2
+    valid_from: "26/Apr/2020 16:29:30 +0100"
+    valid_to: "27/Apr/2020 00:29:30 +0100"
+    f_schedule_id: 2
+    url_stub_id: "0000-33EF"    
