@@ -17,7 +17,7 @@ class App < Roda
       r.is do
         # GET /hello request
         r.get do
-          "#{@greeting} world! Env: #{ENV['ENVIRONMENT']}"
+          "#{@greeting} world!"
         end
       end
     end
