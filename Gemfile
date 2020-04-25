@@ -6,6 +6,7 @@ gem 'sqlite'
 gem 'sqlite3'
 gem 'rake'
 gem 'roda'
+gem 'puma'
 
 group :development do
   gem 'pry'
