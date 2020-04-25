@@ -39,5 +39,6 @@ namespace :data do
     fixture1 = Sequel::Fixture.new :simple1, DB # Will load all the data in the fixture into the database
     fixture2 = Sequel::Fixture.new :simple2, DB # Will load all the data in the fixture into the database
     fixture3 = Sequel::Fixture.new :simple3, DB # Will load all the data in the fixture into the database
+    fixture4 = Sequel::Fixture.new :simple4, DB # Will load all the data in the fixture into the database
   end
 end
