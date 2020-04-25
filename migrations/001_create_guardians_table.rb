@@ -1,3 +1,5 @@
+# This is only a example and needs to be adapted to match our correct entity
+# models.
 Sequel.migration do
   change do
     create_table(:guardians) do
