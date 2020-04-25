@@ -1,7 +1,8 @@
 class App < Roda
   def wards(r)
     r.get do
-      DB[:wards].first.to_hash.to_json
+      account_id = rodauth.jwt_session_hash[:account_id]
+      DB[:wards].where(f_guardian_id: account_id).all.to_json
     end
   end
 end
