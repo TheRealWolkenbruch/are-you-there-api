@@ -18,7 +18,7 @@ try_failed_auth () {
 try_out_login () {
   curl \
     -H 'Content-Type: application/json' \
-    --data '{"login": "JohnDoe", "password": "JohnDoe1"}' \
+    --data '{"login": "john@doe.com", "password": "JohnDoe1"}' \
     --dump-header "$HEADER_FILE" \
     localhost:9292/login
 
