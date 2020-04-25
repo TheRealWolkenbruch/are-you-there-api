@@ -6,9 +6,10 @@ Sequel.migration do
       DateTime :valid_from, null: false
       DateTime :valid_to, null: false
       DateTime :seen_at, null: true
-      Integer :how_do_you_feel , null: false
-      String :feedback_message , null: false, text: true
+      Integer :how_do_you_feel, null: true
+      String :feedback_message, null: true, text: true
       String :url_stub_id , null: false, unique: true
+      foreign_key :f_schedule_id , :schedules
     end
   end
 end
