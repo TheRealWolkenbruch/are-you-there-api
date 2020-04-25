@@ -1,6 +1,8 @@
 #!/bin/bash -x
 
 
+set -e
+
 TIMESTAMP=`date +%s`
 HEADER_FILE=/tmp/header-${TIMESTAMP}.log
 
