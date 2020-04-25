@@ -3,10 +3,16 @@ GEM
   specs:
     coderay (1.1.2)
     method_source (1.0.0)
+    nio4r (2.5.2)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    puma (4.3.3)
+      nio4r (~> 2.0)
+    rack (2.2.2)
     rake (13.0.1)
+    roda (3.31.0)
+      rack
     sequel (5.31.0)
     sqlite (1.0.2)
     sqlite3 (1.4.2)
@@ -16,10 +22,15 @@ PLATFORMS
 
 DEPENDENCIES
   pry
+  puma
   rake
+  roda
   sequel
   sqlite
   sqlite3
+
+RUBY VERSION
+   ruby 2.7.1p83
 
 BUNDLED WITH
    2.1.4
