@@ -31,6 +31,9 @@ GEM
     rake (13.0.1)
     roda (3.31.0)
       rack
+    rodauth (1.23.0)
+      roda (>= 2.6.0)
+      sequel (>= 4)
     sequel (5.31.0)
     sequel-fixture (2.0.1)
       fast
