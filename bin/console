@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+ENV['RACK_ENV'] ||= 'development'
+
+require 'irb'
+require 'irb/completion' # easy tab completion
+
+# Load our mainfile here:
+# require_relative '../app.rb'
+puts "You are in #{ENV['RACK_ENV'].upcase} environment"
+
+IRB.start
