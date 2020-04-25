@@ -1,0 +1,13 @@
+data:
+  - id: 1
+    human_readable_name: "Ward One"
+    email: ward1@google.com
+    password: WardOne1
+    contactdata: "1 Long Street"
+    f_guardian_id: 1
+  - id: 2
+    human_readable_name: "Ward Two"
+    email: ward2@google.com
+    password: WardTwo2
+    contactdata: "2 Long Street"
+    f_guardian_id: 2

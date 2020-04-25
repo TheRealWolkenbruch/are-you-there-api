@@ -30,3 +30,15 @@ namespace :db do
     migrate(version)
   end
 end
+namespace :data do
+  desc 'Insert fixtures'
+  task :fixtures do
+    require "sequel-fixture"
+    DB = Sequel.sqlite("are-you-there_#{ENV['RACK_ENV']}.db")
+    Sequel::Fixture.path = File.join(File.dirname(__FILE__), "fixtures")
+    fixture1 = Sequel::Fixture.new :simple1, DB # Will load all the data in the fixture into the database
+    fixture2 = Sequel::Fixture.new :simple2, DB # Will load all the data in the fixture into the database
+    fixture3 = Sequel::Fixture.new :simple3, DB # Will load all the data in the fixture into the database
+    fixture4 = Sequel::Fixture.new :simple4, DB # Will load all the data in the fixture into the database
+  end
+end

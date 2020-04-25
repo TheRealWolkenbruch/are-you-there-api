@@ -1,0 +1,9 @@
+data:
+  - id: 1
+    name: John Doe
+    email: john@doe.com
+    password: $2a$12$4jj4DvrSdzI3jLhPgqAaVuKx0jb1zvraiAcK6FeNoDGHRMzv1JVw2  # == BCrypt::Password.create('JohnDoe1')
+  - id: 2
+    name: Nice Guy
+    email: nice@guy.com
+    password: $2a$12$7bD8dzh0l9R4xxMt/vMB8exdYS5ogmjlikUUddY83CCFRVc2nEAra  # == BCrypt::Password.create('NiceGuy1')

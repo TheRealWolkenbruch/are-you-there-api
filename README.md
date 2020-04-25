@@ -34,3 +34,9 @@ or for a specific version
 rake db:rollback[0]
 rake 'db:rollback[0]' # for zsh, because i can't parse the rake task correctly
 ```
+
+If you want as a starting playground have some example data laying arround execute
+
+```bash
+rake data:fixtures
+```

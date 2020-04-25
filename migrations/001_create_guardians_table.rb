@@ -1,5 +1,4 @@
-# This is only a example and needs to be adapted to match our correct entity
-# models.
+# Guardian entity
 Sequel.migration do
   change do
     create_table(:guardians) do
@@ -7,7 +6,6 @@ Sequel.migration do
       String :name, null: false
       String :email, null: false
       String :password, null: false
-      String :password_confirmation, null: false
     end
   end
 end
