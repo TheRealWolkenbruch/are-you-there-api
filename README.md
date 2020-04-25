@@ -6,7 +6,16 @@ You can start a console of the proejct with the following command:
 ./bin/console
 ```
 
-## Setup
+## Web Application Container setup
+
+```shell
+docker build -t ayt .
+docker run -p 9292:9292 ayt:latest
+curl 127.0.0.1:9292/hello
+```
+
+
+## Database Setup
 
 We are using SQLite as our database. The following rake task are there to
 migrate the database:

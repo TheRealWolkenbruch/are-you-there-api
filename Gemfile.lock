@@ -21,16 +21,10 @@ GEM
     jwt (2.2.1)
     metafun (0.2.0)
     method_source (1.0.0)
+    nio4r (2.5.2)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    rack (2.2.2)
-    rake (13.0.1)
-    roda (3.31.0)
-      rack
-    rodauth (1.23.0)
-      roda (>= 2.6.0)
-      sequel (>= 4)
     sequel (5.31.0)
     sequel-fixture (2.0.1)
       fast
@@ -56,6 +50,7 @@ DEPENDENCIES
   bcrypt
   jwt
   pry
+  puma
   rake
   roda (~> 3.31)
   rodauth
@@ -63,6 +58,9 @@ DEPENDENCIES
   sequel-fixture
   sqlite
   sqlite3
+
+RUBY VERSION
+   ruby 2.7.1p83
 
 BUNDLED WITH
    2.1.4
