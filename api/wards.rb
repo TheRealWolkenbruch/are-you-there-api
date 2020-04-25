@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class App < Roda
   def wards(r)
     r.get do
       account_id = rodauth.jwt_session_hash[:account_id]
-      DB[:wards].where(f_guardian_id: account_id).all.to_json
+      DB[:wards].where(f_guardian_id: account_id).map { |v| v.reject { |k, _v| k == :password } }.to_json
     end
   end
 end

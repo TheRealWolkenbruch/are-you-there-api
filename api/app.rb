@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'roda'
 require 'sequel'
 require 'sequel/plugins/json_serializer'
-
 
 require_relative 'dbconfig'
 class App < Roda
@@ -18,7 +19,7 @@ class App < Roda
     end
   end
   plugin :hash_routes
-  hash_path "/api/wards" do |r|
+  hash_path '/api/wards' do |r|
     wards(r)
   end
   route do |r|
