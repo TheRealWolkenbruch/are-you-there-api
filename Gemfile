@@ -12,7 +12,6 @@ gem 'rodauth'
 gem 'sequel'
 gem 'sequel-annotate'
 gem 'sequel-fixture'
-gem 'sqlite'
 gem 'sqlite3'
 
 gem 'puma'
