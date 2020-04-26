@@ -18,3 +18,10 @@ gem 'rack-unreloader'
 group :development do
   gem 'pry'
 end
+
+group :test do
+  gem 'capybara'
+  gem 'minitest', '>= 5.7.0'
+  gem 'minitest-hooks', '>= 1.1.0'
+  gem "minitest-global_expectations"
+end

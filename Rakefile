@@ -50,3 +50,12 @@ namespace :data do
     fixture4 = Sequel::Fixture.new :simple4, DB # Will load all the data in the fixture into the database
   end
 end
+spec = proc do |pattern|
+  sh "#{FileUtils::RUBY} -e 'ARGV.each{|f| require f}' #{pattern}"
+end
+namespace :tests do
+  desc "Run web specs"
+  task :api do
+    spec.call('./spec/api/*_spec.rb')
+  end
+end
