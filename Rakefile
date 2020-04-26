@@ -6,12 +6,12 @@ require 'bundler/setup'
 require 'sqlite'
 require 'sequel'
 require 'logger'
+require_relative 'api/dbconfig'
 
 def self.migrate(version)
   Sequel.extension :migration
-  db = Sequel.sqlite(File.join('db', "are-you-there_#{ENV['RACK_ENV']}.db"))
-  db.loggers << Logger.new($stdout) if db.loggers.empty?
-  Sequel::Migrator.apply(db, 'migrations', version)
+  DB.loggers << Logger.new($stdout) if DB.loggers.empty?
+  Sequel::Migrator.apply(DB, 'migrations', version)
 end
 
 def self.rack_env_missing
@@ -31,9 +31,10 @@ namespace :db do
     version = args[:version].to_i || 0
     migrate(version)
   end
-  desc 'Annotate Sequel models'
-  task 'annotate' do
-    ENV['RACK_ENV'] = 'development'
+  
+  desc "Annotate Sequel models"
+  task "annotate" do
+    rack_env_missing
     require_relative 'annotator'
     DB.loggers.clear
     require 'sequel/annotate'
@@ -45,15 +46,12 @@ namespace :data do
   desc 'Insert fixtures'
   task :fixtures do
     rack_env_missing
-    require 'sequel-fixture'
-    DB = Sequel.sqlite("are-you-there_#{ENV['RACK_ENV']}.db")
-    Sequel::Fixture.path = File.join(File.dirname(__FILE__), 'fixtures')
-
-    # Will load all the data in the fixture into the database
-    Sequel::Fixture.new :simple1, DB
-    Sequel::Fixture.new :simple2, DB
-    Sequel::Fixture.new :simple3, DB
-    Sequel::Fixture.new :simple4, DB
+    require "sequel-fixture"
+    Sequel::Fixture.path = File.join(File.dirname(__FILE__), "fixtures")
+    Sequel::Fixture.new :simple1, DB # Will load all the data in the fixture into the database
+    Sequel::Fixture.new :simple2, DB # Will load all the data in the fixture into the database
+    Sequel::Fixture.new :simple3, DB # Will load all the data in the fixture into the database
+    Sequel::Fixture.new :simple4, DB # Will load all the data in the fixture into the database
   end
 end
 

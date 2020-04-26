@@ -33,6 +33,21 @@ class App < Roda
         { ward_id: ward_id }.to_json
       end
     end
+
+    r.post 'delete' do
+      ward_id = r.params['ward_id']
+      ward = Ward.find(id: ward_id)
+      
+      if ward.nil?
+        response.status = 400
+        response.write({ error: 'Ward not found.' })
+        r.halt
+      end
+
+      ward.update(deleted: true)
+
+      { success: "Ward #{ward_id} was marked as deleted." }
+    end
   end
 
   def create_ward(account_id, params)
