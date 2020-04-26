@@ -26,8 +26,7 @@ class App < Roda
   route do |r|
     r.on "are_you_there", String do |url_stub_id|
       r.get do
-        require 'pry'; binding.pry
-        bond = ::Bond.where(url_stub_id: url_stub_id)     
+        bond = ::Bond.where(url_stub_id: url_stub_id).first
         if bond.nil?
           response.status = 404
           response.write({ error: 'Bond not found' }.to_json)
