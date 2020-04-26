@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rubygems'
 require 'bundler/setup'
 
@@ -29,8 +31,8 @@ namespace :db do
     version = args[:version].to_i || 0
     migrate(version)
   end
-  desc "Annotate Sequel models"
-  task "annotate" do
+  desc 'Annotate Sequel models'
+  task 'annotate' do
     ENV['RACK_ENV'] = 'development'
     require_relative 'annotator'
     DB.loggers.clear
@@ -41,7 +43,7 @@ end
 namespace :data do
   desc 'Insert fixtures'
   task :fixtures do
-    require "sequel-fixture"
+    require 'sequel-fixture'
     DB = Sequel.sqlite("are-you-there_#{ENV['RACK_ENV']}.db")
     Sequel::Fixture.path = File.join(File.dirname(__FILE__), "fixtures")
     fixture1 = Sequel::Fixture.new :simple1, DB # Will load all the data in the fixture into the database
