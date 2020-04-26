@@ -40,3 +40,13 @@ If you want as a starting playground have some example data laying arround execu
 ```bash
 rake data:fixtures
 ```
+## Test launcher
+
+To launch tests, simply use test environment, create database, insert data and launch tests
+
+```shell
+export RACK_ENV=test
+rake db:migrate
+rake data:fixtures
+rake tests:api
+```
