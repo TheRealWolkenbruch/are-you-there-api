@@ -29,12 +29,12 @@ class App < Roda
         bond = ::Bond.where(url_stub_id: url_stub_id).first
         if bond.nil?
           response.status = 404
-          response.write({ error: 'Bond not found' }.to_json)
+          response.write("<h1>Sorry, I don't know what you mean </h1>")
           r.halt
         end
         bond.update(seen_at: Time.now)
 
-        { response: 'You are marked as are you there.' }.to_json
+        r.redirect "https://app.areyouthere.de/#{url_sub_id}"
       end
     end
 
