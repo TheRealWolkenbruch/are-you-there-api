@@ -26,16 +26,18 @@ end
 
 Capybara.app = App.freeze.app
 
-class Minitest::HooksSpec
-  include Rack::Test::Methods
-  include Capybara::DSL
+module Minitest
+  class HooksSpec
+    include Rack::Test::Methods
+    include Capybara::DSL
 
-  def app
-    Capybara.app
-  end
+    def app
+      Capybara.app
+    end
 
-  after do
-    Capybara.reset_sessions!
-    Capybara.use_default_driver
+    after do
+      Capybara.reset_sessions!
+      Capybara.use_default_driver
+    end
   end
 end
