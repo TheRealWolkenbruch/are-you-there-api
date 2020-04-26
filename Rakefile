@@ -32,7 +32,7 @@ namespace :db do
   desc "Annotate Sequel models"
   task "annotate" do
     ENV['RACK_ENV'] = 'development'
-    require_relative 'models'
+    require_relative 'annotator'
     DB.loggers.clear
     require 'sequel/annotate'
     Sequel::Annotate.annotate(Dir['models/*.rb'])
