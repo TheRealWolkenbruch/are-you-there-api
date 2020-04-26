@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class App < Roda
-  WHITELIST_PARAMS = %w(human_readable_name contactdata email password)
+  WHITELIST_PARAMS = %w(human_readable_name contactdata email password).freeze
 
   route('wards') do |r|
     # route[List_wards]: /api/wards
