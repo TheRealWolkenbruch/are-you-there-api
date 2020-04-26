@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rubygems'
 require 'bundler/setup'
 
@@ -24,11 +26,12 @@ namespace :db do
   end
 
   desc 'Rollback database to position one'
-  task :rollback, [:version] do |t, args|
+  task :rollback, [:version] do |_t, args|
     rack_env_missing
     version = args[:version].to_i || 0
     migrate(version)
   end
+  
   desc "Annotate Sequel models"
   task "annotate" do
     rack_env_missing
@@ -38,6 +41,7 @@ namespace :db do
     Sequel::Annotate.annotate(Dir['models/*.rb'])
   end
 end
+
 namespace :data do
   desc 'Insert fixtures'
   task :fixtures do
@@ -50,17 +54,20 @@ namespace :data do
     Sequel::Fixture.new :simple4, DB # Will load all the data in the fixture into the database
   end
 end
+
 spec = proc do |pattern|
   sh "#{FileUtils::RUBY} -e 'ARGV.each{|f| require f}' #{pattern}"
 end
+
 namespace :tests do
-  desc "Run web specs"
+  desc 'Run web specs'
   task :api do
     spec.call('./spec/api/*_spec.rb')
   end
 end
+
 namespace :assets do
-  desc "Update the routes metadata"
+  desc 'Update the routes metadata'
   task :precompile do
     sh 'grep -rh "# route" api > routes.tmp'
     sh 'roda-parse_routes -f routes.json routes.tmp'
