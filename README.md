@@ -55,7 +55,7 @@ rake tests:api
 
 API routes should be annotated this way
 
-```shell
+```ruby
 # route[List_wards]: /api/wards
 ```
 
