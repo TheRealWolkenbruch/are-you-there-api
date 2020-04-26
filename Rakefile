@@ -31,7 +31,7 @@ namespace :db do
   end
   desc "Annotate Sequel models"
   task "annotate" do
-    ENV['RACK_ENV'] = 'development'
+    rack_env_missing
     require_relative 'annotator'
     DB.loggers.clear
     require 'sequel/annotate'
