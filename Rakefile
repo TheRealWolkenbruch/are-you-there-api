@@ -45,9 +45,9 @@ namespace :data do
   desc 'Insert fixtures'
   task :fixtures do
     rack_env_missing
-    require "sequel-fixture"
+    require 'sequel-fixture'
     DB = Sequel.sqlite("are-you-there_#{ENV['RACK_ENV']}.db")
-    Sequel::Fixture.path = File.join(File.dirname(__FILE__), "fixtures")
+    Sequel::Fixture.path = File.join(File.dirname(__FILE__), 'fixtures')
     Sequel::Fixture.new :simple1, DB # Will load all the data in the fixture into the database
     Sequel::Fixture.new :simple2, DB # Will load all the data in the fixture into the database
     Sequel::Fixture.new :simple3, DB # Will load all the data in the fixture into the database
@@ -60,14 +60,14 @@ spec = proc do |pattern|
 end
 
 namespace :tests do
-  desc "Run web specs"
+  desc 'Run web specs'
   task :api do
     spec.call('./spec/api/*_spec.rb')
   end
 end
 
 namespace :assets do
-  desc "Update the routes metadata"
+  desc 'Update the routes metadata'
   task :precompile do
     sh 'grep -rh "# route" api > routes.tmp'
     sh 'roda-parse_routes -f routes.json routes.tmp'

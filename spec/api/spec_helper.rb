@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ENV["RACK_ENV"] = "test"
+ENV['RACK_ENV'] = 'test'
 require_relative '../../api/app'
 raise "database name doesn't contain test" unless DB.opts[:database] =~ /test/
 
@@ -20,7 +20,7 @@ else
 end
 
 App.plugin :not_found do
-  raise "404 - File Not Found"
+  raise '404 - File Not Found'
 end
 App.plugin :error_handler do |e|
   raise e

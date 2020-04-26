@@ -20,16 +20,6 @@ Metrics/BlockLength:
 
 # Offense count: 7
 # Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'Rakefile'
-    - 'api/app.rb'
-    - 'spec/api/spec_helper.rb'
-
-# Offense count: 7
-# Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
 Layout/LineLength:
