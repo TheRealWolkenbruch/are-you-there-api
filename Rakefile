@@ -29,6 +29,14 @@ namespace :db do
     version = args[:version].to_i || 0
     migrate(version)
   end
+  desc "Annotate Sequel models"
+  task "annotate" do
+    ENV['RACK_ENV'] = 'development'
+    require_relative 'models'
+    DB.loggers.clear
+    require 'sequel/annotate'
+    Sequel::Annotate.annotate(Dir['models/*.rb'])
+  end
 end
 namespace :data do
   desc 'Insert fixtures'
