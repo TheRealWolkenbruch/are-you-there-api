@@ -18,14 +18,13 @@ class App < Roda
       account[:name] = param('name')
     end
   end
-  plugin :hash_routes
-  hash_path '/api/wards' do |r|
-    wards(r)
-  end
+  plugin :multi_route
   route do |r|
     r.rodauth
     rodauth.require_authentication
-    r.hash_routes
+    r.on "api" do
+      r.multi_route
+    end
   end
 end
-require_relative 'wards'
+require_relative 'routes/wards'
