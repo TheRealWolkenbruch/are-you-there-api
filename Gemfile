@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'rake'
 gem 'roda', '~> 3.31'
 gem 'rodauth'
+gem 'roda-route_list'
 gem 'bcrypt'
 gem 'jwt'
 

@@ -39,6 +39,8 @@ GEM
     minitest-hooks (1.5.0)
       minitest (> 5.3)
     nio4r (2.5.2)
+    nokogiri (1.10.9)
+      mini_portile2 (~> 2.4.0)
     nokogiri (1.10.9-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     pry (0.13.1)
@@ -48,13 +50,15 @@ GEM
     puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)
-    rack-unreloader (1.7.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack-unreloader (1.7.0)
     rake (13.0.1)
     regexp_parser (1.7.0)
     roda (3.31.0)
       rack
+    roda-route_list (2.1.0)
+      roda
     rodauth (1.23.0)
       roda (>= 2.6.0)
       sequel (>= 4)
@@ -95,6 +99,7 @@ DEPENDENCIES
   rack-unreloader
   rake
   roda (~> 3.31)
+  roda-route_list
   rodauth
   sequel
   sequel-annotate
