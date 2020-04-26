@@ -7,13 +7,6 @@
 # versions of RuboCop, may require this file to be generated again.
 
 # Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AllowInHeredoc.
-Layout/TrailingWhitespace:
-  Exclude:
-    - 'spec/api/spec_helper.rb'
-
-# Offense count: 1
 # Configuration parameters: AllowComments.
 Lint/SuppressedException:
   Exclude:
