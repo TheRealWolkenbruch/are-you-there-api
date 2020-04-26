@@ -24,25 +24,19 @@ class App < Roda
   plugin :multi_route
 
   route do |r|
-    r.on "are_you_there", String do |url_stub_id|
-      r.get do
-        bond = ::Bond.where(url_stub_id: url_stub_id).first
-        if bond.nil?
-          response.status = 404
-          response.write("<h1>Sorry, I don't know what you mean </h1>")
-          r.halt
-        end
-        bond.update(seen_at: Time.now)
+    r.rodauth
 
-        r.redirect "https://app.areyouthere.de/#{url_sub_id}"
-      end
+    r.on 'bond' do
+      r.route 'bond'
     end
 
-    r.on "api" do
-      r.rodauth
+    r.on 'api' do
       rodauth.require_authentication
-      r.multi_route
+      r.on 'wards' do
+        r.route 'wards'
+      end
     end
   end
 end
 require_relative 'routes/wards'
+require_relative 'routes/bond'
