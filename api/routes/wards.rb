@@ -4,18 +4,18 @@ class App < Roda
   WHITELIST_PARAMS = %w(human_readable_name contactdata email password)
 
   route('wards') do |r|
-# route[List_wards]: /api/wards
+    # route[List_wards]: /api/wards
     r.get do
       account_id = rodauth.jwt_session_hash[:account_id]
       DB[:wards].where(f_guardian_id: account_id).map { |v| v.reject { |k, _v| k == :password } }.to_json
     end
 
     r.on 'create' do
-# route[Create_ward]: POST /api/wards/create
+      # route[Create_ward]: POST /api/wards/create
       r.post do
         unless params_valid?(r.params)
           response.status = 400
-          response.write({error: 'Missing parameters or too many'}.to_json)
+          response.write({ error: 'Missing parameters or too many' }.to_json)
           r.halt
         end
 
