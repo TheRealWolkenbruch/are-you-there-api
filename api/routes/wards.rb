@@ -27,12 +27,12 @@ class App < Roda
         account_id = rodauth.jwt_session_hash[:account_id]
 
         ward_id = DB[:wards]
-          .insert(f_guardian_id: account_id,
-                  human_readable_name: r.params['human_readable_name'],
-                  contactdata: r.params['contactdata'],
-                  email: r.params['email'],
-                  # MVP solution, guardian set password for ward.
-                  password: BCrypt::Password.create(r.params['password']))
+                  .insert(f_guardian_id: account_id,
+                          human_readable_name: r.params['human_readable_name'],
+                          contactdata: r.params['contactdata'],
+                          email: r.params['email'],
+                          # MVP solution, guardian set password for ward.
+                          password: BCrypt::Password.create(r.params['password']))
 
         { ward_id: ward_id }.to_json
       end
