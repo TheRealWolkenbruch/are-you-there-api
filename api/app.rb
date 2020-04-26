@@ -5,6 +5,9 @@ require 'sequel'
 require 'sequel/plugins/json_serializer'
 
 require_relative 'dbconfig'
+
+Dir["#{Dir.pwd}/models/*.rb"].sort.each { |file| require file }
+
 class App < Roda
   plugin :rodauth, json: :only do
     enable :login, :logout, :jwt, :create_account
@@ -19,12 +22,21 @@ class App < Roda
     end
   end
   plugin :multi_route
+
   route do |r|
     r.rodauth
-    rodauth.require_authentication
-    r.on "api" do
-      r.multi_route
+
+    r.on 'bond' do
+      r.route 'bond'
+    end
+
+    r.on 'api' do
+      rodauth.require_authentication
+      r.on 'wards' do
+        r.route 'wards'
+      end
     end
   end
 end
 require_relative 'routes/wards'
+require_relative 'routes/bond'

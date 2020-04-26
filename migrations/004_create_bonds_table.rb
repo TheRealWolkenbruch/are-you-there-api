@@ -10,6 +10,7 @@ Sequel.migration do
       String :feedback_message, null: true, text: true
       String :url_stub_id , null: false, unique: true
       foreign_key :f_schedule_id , :schedules
+      foreign_key :f_ward_id , :wards
     end
   end
 end
