@@ -7,7 +7,7 @@ Sequel.migration do
       String :contactdata, null: false, text: true
       String :email, null: false, unique: true
       String :password, null: false
-      foreign_key :f_guardian_id , :guardians
+      foreign_key :f_guardian_id, :guardians
     end
   end
 end
