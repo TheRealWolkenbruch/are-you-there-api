@@ -7,7 +7,7 @@ require 'logger'
 
 def self.migrate(version)
   Sequel.extension :migration
-  db = Sequel.sqlite("are-you-there_#{ENV['RACK_ENV']}.db")
+  db = Sequel.sqlite(File.join('db',"are-you-there_#{ENV['RACK_ENV']}.db"))
   db.loggers << Logger.new($stdout) if db.loggers.empty?
   Sequel::Migrator.apply(db, 'migrations', version)
 end
