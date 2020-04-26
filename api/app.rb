@@ -3,9 +3,11 @@
 require 'roda'
 require 'sequel'
 require 'sequel/plugins/json_serializer'
-Dir['../models/*'].each { |file| require_relative file }
 
 require_relative 'dbconfig'
+
+Dir['./models/*'].each { |path| require_relative ".#{path.sub(/\.rb$/, '')}" }
+
 class App < Roda
   plugin :rodauth, json: :only do
     enable :login, :logout, :jwt, :create_account
