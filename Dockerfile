@@ -9,4 +9,5 @@ EXPOSE 9292
 
 ADD . /app
 
+ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["rackup","--host", "0.0.0.0"]
