@@ -13,13 +13,13 @@ class App < Roda
       r.post do
         unless params_valid?(r.params)
           response.status = 400
-          response.write {error: 'Missing parameters or too many'}.to_json
+          response.write({error: 'Missing parameters or too many'}.to_json)
           r.halt
         end
 
         unless params_set?(r.params)
           response.status = 400
-          response.write {error: 'Not all params have a value'}.to_json
+          response.write({error: 'Not all params have a value'}.to_json)
           r.halt
         end
         account_id = rodauth.jwt_session_hash[:account_id]
