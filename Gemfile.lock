@@ -28,6 +28,7 @@ GEM
     puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)
+    rack-unreloader (1.7.0)
     rake (13.0.1)
     roda (3.31.0)
       rack
@@ -35,6 +36,8 @@ GEM
       roda (>= 2.6.0)
       sequel (>= 4)
     sequel (5.31.0)
+    sequel-annotate (1.4.0)
+      sequel (>= 4)
     sequel-fixture (2.0.1)
       fast
       sequel
@@ -60,10 +63,12 @@ DEPENDENCIES
   jwt
   pry
   puma
+  rack-unreloader
   rake
   roda (~> 3.31)
   rodauth
   sequel
+  sequel-annotate
   sequel-fixture
   sqlite
   sqlite3
