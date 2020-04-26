@@ -24,19 +24,22 @@ class App < Roda
           response.write({ error: 'Not all params have a value' }.to_json)
           r.halt
         end
-        account_id = rodauth.jwt_session_hash[:account_id]
 
-        ward_id = DB[:wards]
-                  .insert(f_guardian_id: account_id,
-                          human_readable_name: r.params['human_readable_name'],
-                          contactdata: r.params['contactdata'],
-                          email: r.params['email'],
-                          # MVP solution, guardian set password for ward.
-                          password: BCrypt::Password.create(r.params['password']))
+        account_id = rodauth.jwt_session_hash[:account_id]
+        ward_id = create_ward(account_id, r.params)
 
         { ward_id: ward_id }.to_json
       end
     end
+  end
+
+  def create_ward(account_id, params)
+    DB[:wards].insert(f_guardian_id: account_id,
+                      human_readable_name: params['human_readable_name'],
+                      contactdata: params['contactdata'],
+                      email: params['email'],
+                      # MVP solution, guardian set password for ward.
+                      password: BCrypt::Password.create(params['password']))
   end
 
   def params_valid?(params)
