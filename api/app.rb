@@ -28,3 +28,4 @@ class App < Roda
   end
 end
 require_relative 'routes/wards'
+require_relative 'routes/bonds'

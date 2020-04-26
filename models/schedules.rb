@@ -1,4 +1,6 @@
+require_relative 'bonds'
 class Schedule < Sequel::Model
+  one_to_many :bonds, :key => :f_schedule_id
 end
 
 # Table: schedules
