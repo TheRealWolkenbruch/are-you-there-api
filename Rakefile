@@ -26,7 +26,7 @@ namespace :db do
   end
 
   desc 'Rollback database to position one'
-  task :rollback, [:version] do |t, args|
+  task :rollback, [:version] do |_t, args|
     rack_env_missing
     version = args[:version].to_i || 0
     migrate(version)
