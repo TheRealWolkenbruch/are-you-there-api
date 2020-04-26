@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Bond entity
 Sequel.migration do
   change do

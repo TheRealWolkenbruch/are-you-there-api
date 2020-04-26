@@ -18,26 +18,6 @@ Lint/SuppressedException:
 Metrics/BlockLength:
   Max: 26
 
-# Offense count: 13
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, always_true, never
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - 'annotator.rb'
-    - 'bin/console'
-    - 'config.ru'
-    - 'migrations/001_create_guardians_table.rb'
-    - 'migrations/002_create_wards_table.rb'
-    - 'migrations/003_create_schedules_table.rb'
-    - 'migrations/004_create_bonds_table.rb'
-    - 'models/bonds.rb'
-    - 'models/guardians.rb'
-    - 'models/schedules.rb'
-    - 'models/wards.rb'
-    - 'spec/api/spec_helper.rb'
-    - 'spec/minitest_helper.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/IfUnlessModifier:

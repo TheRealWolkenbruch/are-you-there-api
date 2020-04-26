@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ENV["RACK_ENV"] = "test"
 require_relative '../../api/app'
 raise "database name doesn't contain test" unless DB.opts[:database] =~ /test/

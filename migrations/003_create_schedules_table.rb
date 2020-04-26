@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Schedule entity
 Sequel.migration do
   change do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Guardian entity
 Sequel.migration do
   change do
