@@ -6,7 +6,7 @@ require 'sequel/plugins/json_serializer'
 
 require_relative 'dbconfig'
 
-Dir['./models/*'].each { |path| require_relative ".#{path.sub(/\.rb$/, '')}" }
+Dir["#{Dir.pwd}/models/*.rb"].sort.each { |file| require file }
 
 class App < Roda
   plugin :rodauth, json: :only do
