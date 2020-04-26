@@ -3,9 +3,7 @@
 require_relative 'api/dbconfig'
 require 'sequel/model'
 
-if ENV['RACK_ENV'] == 'development'
-  Sequel::Model.cache_associations = false
-end
+Sequel::Model.cache_associations = false if ENV['RACK_ENV'] == 'development'
 
 Sequel::Model.plugin :auto_validations
 Sequel::Model.plugin :prepared_statements
