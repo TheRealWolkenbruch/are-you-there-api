@@ -7,7 +7,9 @@ class App < Roda
     # route[List_wards]: /api/wards
     r.get do
       account_id = rodauth.jwt_session_hash[:account_id]
-      DB[:wards].where(f_guardian_id: account_id).map { |v| v.reject { |k, _v| k == :password } }.to_json
+      DB[:wards].where(f_guardian_id: account_id).map do |ward|
+        ward.reject { |k, _v| k == :password }
+      end.to_json
     end
 
     r.on 'create' do

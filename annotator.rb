@@ -14,7 +14,9 @@ unless defined?(Unreloader)
   Unreloader = Rack::Unreloader.new(reload: false)
 end
 
-Unreloader.require('models') { |f| Sequel::Model.send(:camelize, File.basename(f).sub(/\.rb\z/, '')) }
+Unreloader.require('models') do |f|
+  Sequel::Model.send(:camelize, File.basename(f).sub(/\.rb\z/, ''))
+end
 
 if ENV['RACK_ENV'] == 'development' || ENV['RACK_ENV'] == 'test'
   require 'logger'

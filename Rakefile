@@ -48,10 +48,12 @@ namespace :data do
     require 'sequel-fixture'
     DB = Sequel.sqlite("are-you-there_#{ENV['RACK_ENV']}.db")
     Sequel::Fixture.path = File.join(File.dirname(__FILE__), 'fixtures')
-    Sequel::Fixture.new :simple1, DB # Will load all the data in the fixture into the database
-    Sequel::Fixture.new :simple2, DB # Will load all the data in the fixture into the database
-    Sequel::Fixture.new :simple3, DB # Will load all the data in the fixture into the database
-    Sequel::Fixture.new :simple4, DB # Will load all the data in the fixture into the database
+
+    # Will load all the data in the fixture into the database
+    Sequel::Fixture.new :simple1, DB
+    Sequel::Fixture.new :simple2, DB
+    Sequel::Fixture.new :simple3, DB
+    Sequel::Fixture.new :simple4, DB
   end
 end
 

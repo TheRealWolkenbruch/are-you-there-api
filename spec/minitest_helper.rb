@@ -11,7 +11,9 @@ module Minitest
     end
 
     around do |&block|
-      DB.transaction(rollback: :always, savepoint: true, auto_savepoint: true) { super(&block) }
+      DB.transaction(rollback: :always,
+                     savepoint: true,
+                     auto_savepoint: true) { super(&block) }
     end
 
     def log
