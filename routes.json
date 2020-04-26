@@ -1,0 +1,1 @@
+[{"path":"/api/wards","name":"List_wards"},{"path":"/api/wards/create","methods":["POST"],"name":"Create_ward"}]

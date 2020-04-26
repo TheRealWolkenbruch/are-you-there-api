@@ -50,3 +50,17 @@ rake db:migrate
 rake data:fixtures
 rake tests:api
 ```
+
+## List APIs
+
+API routes should be annotated this way
+
+```shell
+# route[List_wards]: /api/wards
+```
+
+Then, a json is generated with
+
+```shell
+rake assets:precompile
+```

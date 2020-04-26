@@ -59,3 +59,10 @@ namespace :tests do
     spec.call('./spec/api/*_spec.rb')
   end
 end
+namespace :assets do
+  desc "Update the routes metadata"
+  task :precompile do
+    sh 'grep -rh "# route" api > routes.tmp'
+    sh 'roda-parse_routes -f routes.json routes.tmp'
+  end
+end
