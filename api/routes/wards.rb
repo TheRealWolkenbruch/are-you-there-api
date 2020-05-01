@@ -3,7 +3,7 @@
 class App < Roda
   WHITELIST_PARAMS = %w[human_readable_name contactdata email password].freeze
 
-  route('wards') do |r|
+  route('wards', 'api') do |r|
     # route[List_wards]: /api/wards
     r.get do
       account_id = rodauth.jwt_session_hash[:account_id]
@@ -37,7 +37,7 @@ class App < Roda
     r.post 'delete' do
       ward_id = r.params['ward_id']
       ward = Ward.find(id: ward_id)
-      
+
       if ward.nil?
         response.status = 400
         response.write({ error: 'Ward not found.' })

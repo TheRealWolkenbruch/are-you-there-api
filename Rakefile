@@ -2,8 +2,6 @@
 
 require 'rubygems'
 require 'bundler/setup'
-
-require 'sqlite'
 require 'sequel'
 require 'logger'
 require_relative 'api/dbconfig'
