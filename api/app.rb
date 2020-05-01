@@ -32,7 +32,7 @@ class App < Roda
 
     r.on 'api' do
       rodauth.require_authentication
-      r.multi_route('api')
+      r.multi_route('auth_api')
     end
   end
 end

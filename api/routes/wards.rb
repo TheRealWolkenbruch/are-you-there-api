@@ -3,7 +3,7 @@
 class App < Roda
   WHITELIST_PARAMS = %w[human_readable_name contactdata email password].freeze
 
-  route('wards', 'api') do |r|
+  route('wards', 'auth_api') do |r|
     # route[List_wards]: /api/wards
     r.get do
       account_id = rodauth.jwt_session_hash[:account_id]

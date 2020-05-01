@@ -24,7 +24,7 @@ class App < Roda
       end
     end
   end
-  route('bonds', 'api') do |r|
+  route('bonds', 'auth_api') do |r|
     # route[List_bonds]: /api/bonds
     r.get do
       account_id = rodauth.jwt_session_hash[:account_id]
