@@ -12,29 +12,28 @@ class App < Roda
       end.to_json
     end
 
-    r.on 'create' do
+    r.post 'create' do
       # route[Create_ward]: POST /api/wards/create
-      r.post do
-        unless params_valid?(r.params)
-          response.status = 400
-          response.write({ error: 'Missing parameters or too many' }.to_json)
-          r.halt
-        end
-
-        unless params_set?(r.params)
-          response.status = 400
-          response.write({ error: 'Not all params have a value' }.to_json)
-          r.halt
-        end
-
-        account_id = rodauth.jwt_session_hash[:account_id]
-        ward_id = create_ward(account_id, r.params)
-
-        { ward_id: ward_id }.to_json
+      unless params_valid?(r.params)
+        response.status = 400
+        response.write({ error: 'Missing parameters or too many' }.to_json)
+        r.halt
       end
+
+      unless params_set?(r.params)
+        response.status = 400
+        response.write({ error: 'Not all params have a value' }.to_json)
+        r.halt
+      end
+
+      account_id = rodauth.jwt_session_hash[:account_id]
+      ward_id = create_ward(account_id, r.params)
+
+      { ward_id: ward_id }.to_json
     end
 
     r.post 'delete' do
+      # route[Delete_ward]: POST /api/wards/delete
       ward_id = r.params['ward_id']
       ward = Ward.find(id: ward_id)
 

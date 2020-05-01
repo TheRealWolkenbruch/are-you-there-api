@@ -8,14 +8,14 @@ describe 'access bonds with guardian ID' do
   before do
     header 'Content-Type', 'application/json'
     post '/login', '{"login": "john@doe.com", "password": "JohnDoe1"}'
-    header 'Authorization', last_response.headers['Authorization']    
+    header 'Authorization', last_response.headers['Authorization']
   end
   it 'works' do
     get '/api/bonds'
     assert_equal 200, last_response.status
     response = JSON.parse(last_response.body)
     assert_equal 1, response.size
-    assert_equal "ward1@google.com", response[0]["email"]
+    assert_equal 'ward1@google.com', response[0]['email']
   end
 end
 
@@ -37,9 +37,9 @@ describe 'update bonds with UUID' do
   it 'stores feedback message' do
     how_i_am = Bond[id: 2].feedback_message
     assert_nil how_i_am
-    post '/bond/0000-33EF/update', {'feedback_message' => "I'm fine"}
+    post '/bond/0000-33EF/update', { 'feedback_message' => "I'm fine" }
     assert_equal "I'm fine", Bond[id: 2].feedback_message
-    post '/bond/0000-33EF/update', {'feedback_message' => "Better than ever"}
-    assert_equal "Better than ever", Bond[id: 2].feedback_message
+    post '/bond/0000-33EF/update', { 'feedback_message' => 'Better than ever' }
+    assert_equal 'Better than ever', Bond[id: 2].feedback_message
   end
 end
