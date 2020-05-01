@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Bond entity
 Sequel.migration do
   change do
@@ -8,9 +10,9 @@ Sequel.migration do
       DateTime :seen_at, null: true
       Integer :how_do_you_feel, null: true
       String :feedback_message, null: true, text: true
-      String :url_stub_id , null: false, unique: true
-      foreign_key :f_schedule_id , :schedules
-      foreign_key :f_ward_id , :wards
+      String :url_stub_id, null: false, unique: true
+      foreign_key :f_schedule_id, :schedules
+      foreign_key :f_ward_id, :wards
     end
   end
 end

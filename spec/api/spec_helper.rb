@@ -1,5 +1,6 @@
-  
-ENV["RACK_ENV"] = "test"
+# frozen_string_literal: true
+
+ENV['RACK_ENV'] = 'test'
 require_relative '../../api/app'
 raise "database name doesn't contain test" unless DB.opts[:database] =~ /test/
 
@@ -19,7 +20,7 @@ else
 end
 
 App.plugin :not_found do
-  raise "404 - File Not Found"
+  raise '404 - File Not Found'
 end
 App.plugin :error_handler do |e|
   raise e
@@ -27,16 +28,18 @@ end
 
 Capybara.app = App.freeze.app
 
-class Minitest::HooksSpec
-  include Rack::Test::Methods
-  include Capybara::DSL
+module Minitest
+  class HooksSpec
+    include Rack::Test::Methods
+    include Capybara::DSL
 
-  def app
-    Capybara.app
-  end
+    def app
+      Capybara.app
+    end
 
-  after do
-    Capybara.reset_sessions!
-    Capybara.use_default_driver
+    after do
+      Capybara.reset_sessions!
+      Capybara.use_default_driver
+    end
   end
 end

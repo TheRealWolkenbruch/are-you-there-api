@@ -2,6 +2,7 @@
 
 require_relative 'schedules'
 require_relative 'bonds'
+
 class Ward < Sequel::Model
   one_to_many :schedules, key: :f_ward_id
   plugin :many_through_many
@@ -20,5 +21,8 @@ end
 #  email               | varchar(255) | NOT NULL
 #  password            | varchar(255) | NOT NULL
 #  f_guardian_id       | integer      |
+#  deleted             | integer      | DEFAULT 0
+# Indexes:
+#  sqlite_autoindex_wards_1 | UNIQUE (email)
 # Foreign key constraints:
 #  (f_guardian_id) REFERENCES guardians
