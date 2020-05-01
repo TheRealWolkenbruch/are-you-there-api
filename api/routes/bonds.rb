@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../models/wards'
 class App < Roda
   route('bond') do |r|
     r.on String do |url_stub_id|
