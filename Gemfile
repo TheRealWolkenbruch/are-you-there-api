@@ -19,6 +19,7 @@ gem 'rack-unreloader'
 
 group :development do
   gem 'pry'
+  gem 'pry-byebug'
   gem 'rubocop'
 end
 

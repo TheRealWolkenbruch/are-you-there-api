@@ -23,4 +23,17 @@ class App < Roda
       end
     end
   end
+  route('bonds', 'auth_api') do |r|
+    # route[List_bonds]: /api/bonds
+    r.get do
+      account_id = rodauth.jwt_session_hash[:account_id]
+      DB[:bonds].join(:schedules, id: :f_schedule_id).join(:wards, id: :f_ward_id).where(f_guardian_id: account_id).map do |v|
+        {
+          'message' => v[:feedback_message],
+          'email' => v[:email],
+          'valid_to' => v[:valid_to]
+        }
+      end.to_json
+    end
+  end
 end

@@ -1,6 +1,16 @@
 # frozen_string_literal: true
 
+require_relative 'schedules'
+require_relative 'bonds'
+
 class Ward < Sequel::Model
+  one_to_many :schedules, key: :f_ward_id
+  plugin :many_through_many
+  many_through_many :bonds,
+                    through: [
+                      %i[schedules id f_ward_id],
+                      %i[bonds id f_schedule_id]
+                    ]
 end
 
 # Table: wards
