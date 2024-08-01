@@ -65,7 +65,8 @@ GEM
     rainbow (3.0.0)
     rake (13.0.1)
     regexp_parser (1.7.0)
-    rexml (3.2.4)
+    rexml (3.3.3)
+      strscan
     roda (3.31.0)
       rack
     roda-route_list (2.1.0)
@@ -90,6 +91,7 @@ GEM
       sequel
       symbolmatrix
     sqlite3 (1.4.2)
+    strscan (3.1.0)
     sub-setter (0.0.2)
     symbolmatrix (1.2.0)
       discoverer
